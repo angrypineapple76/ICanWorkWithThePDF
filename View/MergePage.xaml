@@ -1,0 +1,52 @@
+﻿<Page x:Class="ICanWorkWithThePDF.View.MergePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ICanWorkWithThePDF.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="MergePage">
+
+    <Grid Background="White">
+        <StackPanel>
+            <Button Background="Black" Foreground="White" Name="btnBack" Click="btnBack_Click">Назад</Button>
+            <Grid Height="780" Background="Gray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Line X1="650" Y1="430" X2="650" Stroke="Black" StrokeThickness="2"></Line>
+                <Grid Grid.Column="0">
+                    <ListView Name="FilesView" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="400">
+                                    <StackPanel>
+                                        <Image Width="500" Height="400" Source="{Binding PreviosImage}"></Image>
+                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Margin="5">
+                        <Button Height="70" Width="70" Background="LightGray" Name="btnAdd" Click="btnAdd_Click">
+                            <Button.Content>
+                                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Добавить файл</TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock></TextBlock>
+                        <Button Height="70" Width="70" Background="LightGray" Name="btnMerge" Click="btnMerge_Click">
+                            <Button.Content>
+                                <TextBlock TextWrapping="Wrap" FontSize="11" TextAlignment="Center">Объеденить файлы</TextBlock>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

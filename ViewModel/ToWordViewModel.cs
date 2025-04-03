@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using ICanWorkWithThePDF.Classes;
+
+namespace ICanWorkWithThePDF.ViewModel
+{
+    public class ToWordViewModel : INotifyPropertyChanged
+    {
+        public ObservableCollection<ModelObject> filesList = new ObservableCollection<ModelObject>();
+        public ObservableCollection<ModelObject> FilesList
+        {
+            get { return filesList; }
+            set { filesList = value; OnPropertyChanged(); }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}
